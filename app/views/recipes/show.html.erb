@@ -1,0 +1,25 @@
+
+
+    
+<h2>Recipe#<span><%=@recipe.id %></span></h2>
+<p>
+    
+ <li> Preparation time: <%= @recipe.preparation_time %> min/hrs</li>
+   <li> Cooking time: <%= @recipe.cooking_time %>min/hrs</li>
+   <li> Preparation Steps<%= @recipe.description %> </li>
+    <%= @recipe.public %>
+    </p>
+
+
+    <%= button_to "Generate shopping list", "/general_shopping_list/", method: :get %>
+    <%= button_to "Add Ingredient", "/recipes/#{@recipe.id}/", method: :get %>
+
+    <%= render 'shared/recipe_foods_table' %>
+
+
+
+
+
+
+
+
