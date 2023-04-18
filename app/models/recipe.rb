@@ -1,4 +1,6 @@
 class Recipe < ApplicationRecord
-  has_many :recipe_food
-  has_many :food, through: :recipe_food
+  belongs_to :user, foreign_key: :user_id
+  has_many :recipe_foods, foreign_key: :recipe_id
+
+  validates :name, presence: true
 end
