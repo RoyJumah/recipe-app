@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+     <tr>
+      <th scope="col">Food</th>
+      <th scope="col">Measurement unit</th>
+      <th scope="col">Unit Price</th>
+      <th scope="col">Qunatity</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+    <tr>
+      <th scope="row"><%= food.name %></th>
+      <td><%= food.measurement_unit  %></td>
+      <td>$<%= food.price %></td>
+      <td><%= food.quantity %></td>
+      <td> action </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
