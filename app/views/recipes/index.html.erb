@@ -1,0 +1,13 @@
+
+
+<ul>
+<% @recipes.each do |recipe| %>
+  <h2> Recipe #<span><%=recipe.id %></span></h2>
+  <li><%= recipe.name %></li>
+  <%= button_to "Delete Recipe", "/recipes/#{recipe.id}", method: :delete, data: {confirm: "Are you sure you want to delete this recipe?"} %>
+<% end %>
+</ul>
+
+
+  
+  
