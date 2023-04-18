@@ -4,8 +4,9 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @recipe_foods = RecipeFood.where(recipe_id: params[:id])
+    @foods = Food.all
     @recipe = Recipe.find(params[:id])
-    @foods = @recipe.foods
   end
 
   def destroy
