@@ -2,11 +2,14 @@
 
 <ul>
 <% @recipes.each do |recipe| %>
-  <h2> Recipe #<span><%=recipe.id %></span></h2>
+  <h2><%= link_to "Recipe #{recipe.id}", recipe_path(recipe) %></h2>
+
   <li><%= recipe.name %></li>
-  <%= button_to "Delete Recipe", "/recipes/#{recipe.id}", method: :delete, data: {confirm: "Are you sure you want to delete this recipe?"} %>
+  <%= button_to "Delete Recipe", "/recipes/#{recipe.id}",class:"btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure you want to delete this recipe?"} %>
 <% end %>
 </ul>
+
+<%= link_to "Add Recipe", "/recipes/new", class:"btn btn-outline-primary" %>
 
 
   
