@@ -5,6 +5,10 @@ ruby '3.2.2'
 
 gem 'pg'
 
+gem 'devise'
+
+gem 'letter_opener'
+
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
