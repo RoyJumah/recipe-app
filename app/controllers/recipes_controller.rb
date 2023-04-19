@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.create(recipe_params)
-    @recipe.user_id = 1
+    @recipe.user_id = current_user.id
     if @recipe.save
       redirect_to recipes_path, notice: 'Recipe was successfully created.'
     else
@@ -27,6 +27,11 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
     redirect_to recipes_path
+  end
+
+  def recipe_foods 
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe_food = RecipesFood.where(recipe_id: params[:recipe_id])
   end
 
   private

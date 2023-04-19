@@ -1,0 +1,8 @@
+<h2>Create a from for the recipes food</h2>
+
+<%= form_for @recipe_foods do |f| %>
+    <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+<% end %>
