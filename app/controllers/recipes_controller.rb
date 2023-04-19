@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
-  def recipe_foods 
+  def recipe_foods
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = RecipesFood.where(recipe_id: params[:recipe_id])
   end
