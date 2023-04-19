@@ -1,0 +1,33 @@
+<h2 class="text-center"> Add Recipe</h2>
+<%= form_with model: @recipe, url: recipes_path, class: "form-horizontal container-md" do |f| %>
+  <div class="form-group">
+    <%= f.label :name, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :preparation_time, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :preparation_time, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :cooking_time, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :cooking_time, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :description, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "Add Recipe", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

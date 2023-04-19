@@ -2,24 +2,38 @@
 
     
 <h2>Recipe#<span><%=@recipe.id %></span></h2>
-<p>
-    
- <li> Preparation time: <%= @recipe.preparation_time %> min/hrs</li>
-   <li> Cooking time: <%= @recipe.cooking_time %>min/hrs</li>
-   <li> Preparation Steps<%= @recipe.description %> </li>
-    <%= @recipe.public %>
-    </p>
+<div class="d-flex">
+  <div class="me-5">
+    <ul>
+      <li>Preparation time: <%= @recipe.preparation_time %> min/hrs</li>
+      <li>Cooking time: <%= @recipe.cooking_time %>min/hrs</li>
+      <li>Preparation Steps: <%= @recipe.description %></li>
+      <li>Steps go here...</li>
+    </ul>
+  </div>
+  <div>
+    <%= form_with model: @recipe, url: recipes_path(@recipe), method: :patch do |f| %>
+      <div class="form-group">
+        <label for="public-toggle" class="form-label d-flex align-items-center cursor-pointer">
+          <%= f.check_box :public, { class: "form-check-input position-static me-2", id: "public-toggle" } %>
+          <div class="form-switch"></div>
+          <span>Public</span>
+        </label>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 
 
     <%= button_to "Generate shopping list", "/general_shopping_list/", method: :get %>
     <%= button_to "Add Ingredient", "/recipes/#{@recipe.id}/", method: :get %>
-
     <%= render 'shared/recipe_foods_table' %>
 
 
 
 
-
+ 
 
 
 
