@@ -1,7 +1,8 @@
 class FoodsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @foods = Food.all
+    @user = current_user
+    @foods = Food.all.where(user_id: @user.id)
   end
 
   def new
@@ -9,9 +10,9 @@ class FoodsController < ApplicationController
   end
 
   def create
-    # @user = current_user
+    @user = current_user
     @food = Food.create(food_params)
-    @food.user_id = 1
+    @food.user_id = @user.id
     if @food.save
       redirect_to foods_path, notice: 'Food was successfully created.'
     else
