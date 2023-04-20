@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   root "foods#index"
 
   resources :foods ,only: [:index, :new, :create, :destroy]
-  # resources :publicrecipes, only: [:index]
-  resources :recipes, only: [:index, :new, :create, :destroy, :show, :recipe_foods] do
+  resources :recipes, only: [:index, :new, :create, :destroy, :show, :recipe_foods, :update ] do
     resources :recipe_foods, only: [:new ,:create, :destroy]
   end
+  resources :public_recipes, only: [:index]
 end

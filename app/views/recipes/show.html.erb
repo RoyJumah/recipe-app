@@ -12,15 +12,21 @@
     </ul>
   </div>
   <div>
-    <%= form_with model: @recipe, url: recipes_path(@recipe), method: :patch do |f| %>
-      <div class="form-group">
-        <label for="public-toggle" class="form-label d-flex align-items-center cursor-pointer">
-          <%= f.check_box :public, { class: "form-check-input position-static me-2", id: "public-toggle" } %>
-          <div class="form-switch"></div>
-          <span>Public</span>
-        </label>
-      </div>
-    <% end %>
+  <%= form_with(model: @recipe, url: recipe_path(@recipe), method: :patch) do |f| %>
+    <div class="form-group">
+      <% if @recipe.public? %>
+        <%= f.submit "Make Private", :class => "btn btn-secondary" %>
+        <%= f.hidden_field :public, :value => false %>
+      <% else %>
+        <%= f.submit "Make Public", :class => "btn btn-primary" %>
+        <%= f.hidden_field :public, :value => true %>
+      <% end %>
+    </div>
+  <% end %>
+  
+  
+  
+  
   </div>
 </div>
 
