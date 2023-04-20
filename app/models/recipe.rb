@@ -4,4 +4,5 @@ class Recipe < ApplicationRecord
   has_many :foods, through: :recipe_foods, class_name: 'Food'
 
   validates :name, presence: true
+  validates :public, inclusion: { in: [true, false] }
 end
