@@ -2,16 +2,16 @@
   <% if notice.present? %>
     <p class="notice"><%= notice %></p>
   <% end %>
-  <h1>Public Recipes</h1>
+  <h1 class ='text-center'>Public Recipes</h1>
   <div id="recipes">
     <% if @recipes.any? %>
       <% @recipes.each do |recipe| %>
         <% if recipe.public? %>
           <div class="recipe">
-            <p><%= link_to recipe.name, recipe %></p>
+            <p><%= link_to recipe.name, recipe, style: "text-decoration:none; font-size: smaller" %></p>
             <p><strong>Total food items:</strong> <%= recipe.foods.count %></p>
             <p><strong>Total price:</strong> $<%= recipe.recipe_foods.sum { |rf| rf.food.price * rf.quantity } %></p>
-
+            <p><strong>By: </strong><%= recipe.user.name %></p>
           </div>
         <% end %>
       <% end %>
