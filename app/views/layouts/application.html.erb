@@ -12,7 +12,7 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
   <%= link_to "My App", root_path, class: "navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -21,12 +21,6 @@
     <ul class="navbar-nav">
       <% if user_signed_in? %>
 
-    
-
-    
-        <li class="nav-item">
-          <%= link_to "Sign Out", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "nav-link" %>
-        </li>
         <li class="nav-item">
           <%= link_to "Recipes", recipes_path, class: "nav-link" %>
         </li>
@@ -35,6 +29,10 @@
         </li>
         <li class="nav-item">
           <%= link_to "Public Recipes", public_recipes_path, class: "nav-link" %>
+        </li>
+  
+        <li class="nav-item">
+        <%= link_to "Shopping List", shopping_list_index_path, class: "nav-link" %>
         </li>
       <% else %>
         <li class="nav-item">
@@ -47,6 +45,9 @@
         <li class="nav-item">
           <%= link_to  current_user.name, edit_user_registration_path, class: "nav-link" %>
         </li>
+        <li class="nav-item">
+        <%= link_to "Sign Out", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "nav-link" %>
+      </li>
       <% else %>
         <li class="nav-item">
           <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
