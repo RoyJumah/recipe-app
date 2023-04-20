@@ -1,6 +1,6 @@
 
 
-    
+    <div class='container'>
 <h2>Recipe#<span><%=@recipe.id %></span></h2>
 <div class="d-flex">
   <div class="me-5">
@@ -25,12 +25,16 @@
 </div>
 
 
+<div class="d-flex justify-content-between">
+<%= button_to "Generate shopping list", "/general_shopping_list/", method: :get, class: "btn btn-outline-primary" %>
 
-    <%= button_to "Generate shopping list", "/general_shopping_list/", method: :get %>
-    <%= button_to "Add Ingredient", "/recipes/#{@recipe.id}/", method: :get %>
+<%= button_to "Add Ingredient", "/recipes/#{@recipe.id}/recipe_foods/new", 
+method: :get, class: "btn btn-outline-primary" %>
+
+    </div>
     <%= render 'shared/recipe_foods_table' %>
 
-
+</div>
 
 
  

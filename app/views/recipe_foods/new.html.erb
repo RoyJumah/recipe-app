@@ -1,19 +1,28 @@
 <div class='container'>
-<%= form_with model: @food, url: recipes_path, class: "form-horizontal container-md" do |f| %>
+<%= form_with(model: @recipe_foods, url: recipe_recipe_foods_path(@recipe), local: true) do |form| %>
+
+  <% if @recipe_foods.errors.any? %>
+    <div class="error-messages">
+      <h2><%= pluralize(@recipe_foods.errors.count, "error") %> prohibited this recipe_food from being saved:</h2>
+      <ul>
+        <% @recipe_foods.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="form-group">
-  <%= f.label :quantity, class: "col-sm-2 control-label" %>
-  <div class="col-sm-10">
-    <%= f.number_field :quantity, class: "form-control" %>
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity, class: "form-control" %>
   </div>
-</div>
-
-<div class="form-group mb-2">
-  <%= f.label "Food", class: "col-sm-2 control-label" %>
-  <div class="col-sm-1">
-  <%= f.select :item, options_for_select(['Choose...', 'Flour', 'Sugar', 'Milk', 'Eggs']), {}, class: "form-control" %>
+  <div class="form-group mb-4">
+    <%= form.label :food_id %>
+    <%= form.select :food_id, options_for_select(@foods.collect{ |f| [f.name, f.id] }), { prompt: "Choose..." }, class: "form-control" %>
   </div>
-</div>
-
-<%= f.submit "Save", class: "btn btn-primary" %>
+  <div class="form-group">
+    <%= form.submit "Add Ingredient", class: "btn btn-primary" %>
+  </div>
 <% end %>
+
+
 </div>
