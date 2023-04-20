@@ -1,1 +1,29 @@
-<h2>Working of the shopping list</h2>
+<h1 class="font-bold text-4xl mb-10 text-center">Shopping List for <%= current_user.name %></h1>
+<div class="mb-10 text-center">
+  <span class="text-2xl">
+    Amount of food items to buy: <span class="font-bold"><%= @food_counts %></span>
+  </span>
+  <span class="text-2xl">
+    Total value of food needed: <span class="font-bold">$<%= @food_prices %></span>
+  </span>
+</div>
+<table class="table">
+  <thead class="">
+    <tr>
+      <th class="p-4">Food</th>
+      <th class="p-4">Quantity</th>
+      <th class="p-4">Price</th>
+      <th class="p-4">Amount</th>
+    </tr>
+  </thead>
+  <tbody class="bg-gray-300 p-20">
+    <% @food.each do |r|%>
+      <tr class="h-16">
+        <td class="p-4"><%= r.name %></td>
+        <td class="p-4"><%= r.quantity %> <%= r.measurement_unit %></td>
+        <td class="p-4">$<%= r.price %></td>
+        <td class="p-4">$<%= r.price.to_i * r.quantity.to_i %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
