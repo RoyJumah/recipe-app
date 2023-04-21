@@ -33,7 +33,7 @@ RSpec.describe 'Food', type: :system do
       click_button 'Create Food'
     end
     it 'should check the food list name' do
-      expect(page).to have_content 'Apple'
+      expect(page).to have_content 'Rice'
       expect(page).to have_content 'Wheat'
     end
     it 'should check the food list Measurement unit' do
@@ -46,12 +46,12 @@ RSpec.describe 'Food', type: :system do
     end
     it 'should check the delete the food' do
       within('table') do
-        within('tr', text: 'Apple') do
+        within('tr', text: 'Rice') do
           find('button', text: 'Delete').click
         end
       end
       sleep 1
-      expect(page).not_to have_content('Apple')
+      expect(page).not_to have_content('Rice')
     end
   end
 end
