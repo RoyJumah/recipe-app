@@ -1,0 +1,32 @@
+<div class="container">
+  <% if notice.present? %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
+  <h1 class="text-center">Public Recipes</h1>
+  <div class="col-md-4 container">
+   <div id="recipes">
+    <% if @recipes.any? %>
+      <% @recipes.each do |recipe| %>
+        <% if recipe.public? %>
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <h5 class="card-title"><%= link_to recipe.name, recipe, style: "text-decoration:none; font-size: smaller; color: black" %></h5>
+                  <p class="card-text"><strong>By: </strong><%= recipe.user.name %></p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                  <p class="card-text"><strong>Total Food Items:</strong> <%= recipe.foods.count %></p>
+                  <p class="card-text"><strong>Total Price:</strong> $<%= recipe.recipe_foods.sum { |rf| rf.food.price * rf.quantity } %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>No public recipes found</p>
+    <% end %>
+  </div>
+</div>
+</div>

@@ -1,9 +1,15 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.3'
+ruby '3.2.2'
 
 gem 'pg'
+
+gem 'devise'
+
+gem 'cancancan'
+
+gem 'letter_opener'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
@@ -54,6 +60,9 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rails-controller-testing'
+  gem 'rspec'
+  gem 'rspec-rails', '~> 6.0.0'
 end
 
 group :development do
