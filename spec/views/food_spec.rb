@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Recipes', type: :system do
+RSpec.describe 'Food', type: :system do
     # describe 'SIGN IN' do
     #     it 'signs me in' do
     #         fill_in email_field, with: 'foo@yopmail.com'
@@ -31,24 +31,7 @@ RSpec.describe 'Recipes', type: :system do
             fill_in 'Measurement unit', with: 'kg'
             fill_in 'Price', with: '10'
             click_button 'Create Food'
-        #  visit foods_path
      end
-    #  it 'should add a new food' do
-    #         click_link 'Add Food'
-    #         fill_in 'Name', with: 'Rice'
-    #         fill_in 'Measurement unit', with: 'kg'
-    #         fill_in 'Price', with: '10'
-    #         click_button 'Create Food'
-    #         expect(page).to have_content 'Food was successfully created.'
-    #  end
-    #  it 'should add a second new food' do
-    #         click_link 'Add Food'
-    #         fill_in 'Name', with: 'Wheat'
-    #         fill_in 'Measurement unit', with: 'kg'
-    #         fill_in 'Price', with: '10'
-    #         click_button 'Create Food'
-    #         expect(page).to have_content 'Food was successfully created.'
-    #  end
      it 'should check the food list name' do
          expect(page).to have_content 'Apple'
          expect(page).to have_content 'Wheat'
