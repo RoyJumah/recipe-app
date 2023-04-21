@@ -5,7 +5,7 @@
     <div class="col-md-6 mx-auto">
       <ul class ='list-unstyled'>
         <% @recipes.each do |recipe| %>
-          <div  style="background-color: #dee2e6", class=" rounded p-3 mb-3 ">
+          <div  style="background-color: #dee2e6", class=" rounded p-3 mb-3 recipes">
             <h2><%= link_to "Recipe #{recipe.id}", recipe_path(recipe), class: "text-decoration-none fs-5" %></h2>
             <li><%= recipe.name %></li>
             <%= button_to "Delete Recipe", recipe_path(recipe), class: "btn btn-danger mt-4", method: :delete, data: { confirm: "Are you sure you want to delete this recipe?" }, turbo: true %>
