@@ -29,7 +29,6 @@
 
 
 <div class="d-flex justify-content-between">
- <%# <%= button_to "Generate shopping list", "/shopping_list", method: :get, class: "btn btn-outline-primary" %> 
 <%= form_tag(shopping_list_index_path, method: :get) do %>
   <%= hidden_field_tag :button_clicked, true %>
   <%= button_tag "Generate shopping list", class: "btn btn-outline-primary" %>
