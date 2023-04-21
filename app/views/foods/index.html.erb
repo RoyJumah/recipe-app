@@ -1,6 +1,8 @@
-<a href="/foods/new">
+<div class="container">
+  <a href="/foods/new" class="d-block text-center mt-3 mb-5">
     <button type="button" class="btn btn-primary">Add Food</button>
-</a>
+  </a>
+
 
 <table class="table">
   <thead>
@@ -8,7 +10,6 @@
       <th scope="col">Food</th>
       <th scope="col">Measurement unit</th>
       <th scope="col">Unit Price</th>
-      <th scope="col">Quantity</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -18,10 +19,11 @@
       <th scope="row"><%= food.name %></th>
       <td><%= food.measurement_unit  %></td>
       <td>$<%= food.price %></td>
-      <td><%= food.quantity %></td>
       <td><%= button_to "Delete", food_path(food), method: :delete, data: { confirm: "Are you sure?" } %></td>
 </td>
     </tr>
     <% end %>
   </tbody>
 </table>
+
+</div>

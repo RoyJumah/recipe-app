@@ -1,5 +1,6 @@
-<h2>Create a food to the current user</h2>
+<h2 class='text-center'>Create food</h2>
 
+<div class="container">
 <%= form_for @food do |f| %>
   <div class="form-group">
     <%= f.label :name %>
@@ -19,3 +20,4 @@
   </div>
   <%= f.submit "Create Food", class: "btn btn-primary" %>
 <% end %>
+</div>
