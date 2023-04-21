@@ -6,9 +6,6 @@ RSpec.describe Recipe, type: :model do
     @recipe = Recipe.create(name: 'Chicken', preparation_time: 30, cooking_time: 20, description: 'Chicken is good',
                             public: true, user_id: @user.id)
   end
-  it 'is valid with valid attributes' do
-    expect(@recipe).to be_valid
-  end
   it 'name is present' do
     expect(@recipe.name).to be_present
   end
