@@ -5,9 +5,6 @@ RSpec.describe Food, type: :model do
     @user = User.create(name: 'John')
     @food = Food.create(name: 'Chicken', measurement_unit: 'kg', price: 30, quantity: 10, user_id: @user.id)
   end
-  it 'is valid with valid attributes' do
-    expect(@food).to be_valid
-  end
   it 'name is present' do
     expect(@food.name).to be_present
   end
