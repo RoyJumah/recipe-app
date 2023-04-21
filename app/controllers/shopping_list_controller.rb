@@ -2,7 +2,7 @@ class ShoppingListController < ApplicationController
   def index
     @food = []
     if params[:button_clicked]
-      @food = current_user.foods.left_outer_joins(:recipe_foods).where(recipe_foods: { id: nil }).includes(:recipe_foods)
+      @food = current_user.foods.left_outer_joins(:recipe_foods).where(recipe_foods: { id: nil })
       @foodcounts = @food.count
       @foodprices = @food.sum(:price)
       flash[:success] = 'Shopping list updated successfully.'
